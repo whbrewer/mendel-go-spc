@@ -1068,8 +1068,6 @@
     </div>
 </div>
 
-track_neutrals: {{track_neutrals}}
-
 <script>
   $(document).ready(function() {
     fxn_init();
