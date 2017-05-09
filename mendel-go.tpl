@@ -41,6 +41,9 @@
       method="post" action="/confirm" novalidate>
 <input type="hidden" name="app" value="{{app}}">
 <input type="hidden" name="cid" value="{{cid}}">
+<input type="hidden" name="mutn_rate_model" value="{{mutn_rate_model}}">
+<input type="hidden" name="fitness_effect_model" value="{{fitness_effect_model}}">
+<input type="hidden" name="num_offspring_model" value="{{num_offspring_model}}">
 <input type="hidden" name="files_to_output" value='"mendel.hst"'>
 
 <div class="col-sm-12 hidden-xs" style="height:5px"></div>
@@ -819,16 +822,9 @@
         <label for="verbosity" class="control-label col-xs-12 col-sm-6">
           <a data-toggle="popover" title="verbosity" data-content='MENDEL generates a lot of output information. However, not all of it is necessary. This verbosity option allows the user to limit the amount of files that are written to disk in order to save hard disk space. A verbosity level of 0 will essentially turn most diagnostics routines off, and will output just a .out output file and a .hst history file (which will allow viewing of fitness and mutation plots). A verbosity level of 1 will write all necessary files for plotting using the default JavaScript plotting system (Flot). A verbosity level of 2 "Output everything" is required to write ancillary files, such as .gnu Gnuplot files, .tim timing information for performance benchmarking, .pmd polymorphism frequency table, .acc table of accumulated deleterious dominant mutations, etc.'>8. Output verbosity level:</a></label>
         <div class="col-xs-12 col-sm-3">
-          <select name="verbosity" class="form-control" id="verbosity">
-            %opts = {'0': '0-Output only history', '1': '1-Output necessary files', '2': '2-Output everything' }
-            %for key, value in opts.iteritems():
-                %if key == verbosity:
-                    <option selected value="{{key}}">{{value}}
-                %else:
-                    <option value="{{key}}">{{value}}
-                %end
-            %end
-           </select>
+          <input type="number" name="verbosity"
+                 class="form-control" min="0" max="9" step="1" onchange="validate(this)"
+                 title="0-1" value="{{verbosity}}">
           </div>
       </div>
 
