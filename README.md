@@ -4,6 +4,7 @@ To use this package, first install SPC from https://github.org/whbrewer/SPC
 then run:
 
 > ./spc init
+
 > ./spc install https://github.com/whbrewer/mendel-go-spc/archive/master.zip
 
 Note, you will need to get the mendel-go binary (not currently relaced), and
